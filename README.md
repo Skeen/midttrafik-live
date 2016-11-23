@@ -3,7 +3,11 @@ Pull bus data from 'live.midttrafik.dk/getbuses.php' and output as JSON.
 
 ## Data-Format
 
-getStops():
+```
+getStops(latitude, longitude, radius, callback):
+```
+Callback takes two arguments `err` and `data`,  below is an example of the data. 
+```
 [
 { Number: '751470500',
   Name: 'Lystrup Centervej/Hallen',
@@ -11,9 +15,13 @@ getStops():
   Lon: '10.234663',
   Distance: '216' }, 
  ... 
-] 
-
-getBuses():
+]
+```
+```
+getBuses(latitude, longitude, radius, callback):
+```
+Callback takes two arguments `err` and `data`,  below is an example of the data. 
+```
 [
 { Id: '722',
   Name: 'AH78574 - 682',
@@ -33,8 +41,12 @@ getBuses():
   DirectionText: 'Kolt' }, 
  ... 
 ] 
-
-getJourney():
+```
+```
+getJourney(bus):
+```
+Callback takes two arguments `err` and `data`,  below is an example of the data. 
+```
 [
 { Number: '751439100',
   Name: 'Randersvej/Motorvejen',
@@ -46,3 +58,4 @@ getJourney():
   DepartureExpected: '' }, 
  ... 
 ] 
+```
