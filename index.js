@@ -2,6 +2,7 @@ var request = require('request');
 var parseString = require('xml2js').parseString;
 
 // TODO: Error handling
+// TODO: Add support for https://live.midttrafik.dk/getstopinfo2.php?station=751464400&journeys=10
 
 function getBuses(latitude, longitude, radius, callback)
 {
