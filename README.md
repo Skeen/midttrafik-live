@@ -2,7 +2,8 @@
 Pull bus data from 'live.midttrafik.dk/getbuses.php' and output as JSON.
 
 ## Data-Format
-
+### getStops
+Get a list of stops within the area specified by radius centered at latitude and longitude. 
 ```
 getStops(latitude, longitude, radius, callback):
 ```
@@ -17,6 +18,8 @@ Callback takes two arguments `err` and `data`,  below is an example of the data.
  ... 
 ]
 ```
+### getBuses
+Get a list of busses within the area specified by radius centered at latitude and longitude. 
 ```
 getBuses(latitude, longitude, radius, callback):
 ```
@@ -42,6 +45,8 @@ Callback takes two arguments `err` and `data`,  below is an example of the data.
  ... 
 ] 
 ```
+### getJourney
+Get a list of stops that `bus` has already or will pass on it's route. 
 ```
 getJourney(bus):
 ```
