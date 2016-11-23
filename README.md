@@ -48,7 +48,7 @@ Callback takes two arguments `err` and `data`,  below is an example of the data.
 ### getJourney
 Get a list of stops that `bus` has already or will pass on it's route. 
 ```
-getJourney(bus):
+getJourney(bus, callback):
 ```
 Callback takes two arguments `err` and `data`,  below is an example of the data. 
 ```
