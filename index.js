@@ -43,7 +43,7 @@ function getStops(latitude, longitude, radius, callback)
 
 }
 
-function getJourney(bus, callback)
+function getRouteStops(bus, callback)
 {
     var url = 'https://live.midttrafik.dk/getroutestops.php?p=1&journeyid=' + bus.JourneyId;
     request(url, function(err, response, body)
@@ -71,13 +71,43 @@ function getJourney(bus, callback)
             */
         });
     });
+}
 
+function getStopDepartures(stop, callback)
+{
+    var url = 'https://live.midttrafik.dk/getstopinfo2.php?station=' + stop.Number + '&journeys=10';
+    request(url, function(err, response, body)
+    {
+        parseString(body, function(err, json_raw)
+        {
+            var json = json_raw.MultiDepartureBoard.Departure;
+            json = json.map(function(elem)
+            {
+                return elem.$;
+            });
+ 
+            // Output a JSON array of the stops
+            //console.log(json);
+            callback(null, json);
+            /*
+            var json = json_raw.Result.Bus;
+            json = json.map(function(elem)
+            {
+                return elem.$;
+            });
+            // Output a JSON array of the busses found
+            //console.log(json);
+            callback(json);
+            */
+        });
+    });
 }
 
 // Example of usage:
 var latitude = 56.23768998815982;
 var longitude = 10.231356261596662;
 var radius = 1968.3468750945158;
+
 getBuses(latitude, longitude, radius, function(err, buses)
 {
     // Find the first bus 1A
@@ -94,7 +124,7 @@ getBuses(latitude, longitude, radius, function(err, buses)
     var bus = buses[A1_index];
     console.log(bus);
 
-    getJourney(bus, function(err, stops)
+    getRouteStops(bus, function(err, stops)
     {
         // Find the first stop we haven't passed yet (next stop)
         var nextStop_index = stops.findIndex(function(elem)
@@ -116,4 +146,19 @@ getStops(latitude, longitude, radius, function(err, stops)
 {
     // Print the closest stop
     console.log(stops[0] || 'No stops found');
+    getStopDepartures(stops[0], function(err, buses)
+    {
+        var firstDelayed_index = buses.findIndex(function(elem)
+        {
+            return elem.rtTime != undefined;
+        });
+
+        if(firstDelayed_index == -1)
+        {
+            console.error("No buses were delayed for this stop");
+            process.exit(1);
+        }
+        var bus = buses[firstDelayed_index];
+        console.log(bus);
+    });
 });

@@ -45,10 +45,10 @@ Callback takes two arguments `err` and `data`,  below is an example of the data.
  ... 
 ] 
 ```
-### getJourney
+### getRouteStops
 Get a list of stops that `bus` has already or will pass on it's route. 
 ```
-getJourney(bus, callback):
+getRouteStops(bus, callback):
 ```
 Callback takes two arguments `err` and `data`,  below is an example of the data. 
 ```
@@ -63,4 +63,26 @@ Callback takes two arguments `err` and `data`,  below is an example of the data.
   DepartureExpected: '' }, 
  ... 
 ] 
+```
+### getStopDepartures
+Get a list of busses that's passing by the `stop`.
+```
+getStopDepartues(stop, callback):
+```
+Callback takes two arguments `err` and `data`,  below is an example of the data. 
+```
+
+[
+{ name: 'Bus 114',
+  type: 'BUS',
+  stop: 'Viborgvej/Bredskiftevej (Aarhus)',
+  time: '11:31',
+  date: '24.11.16',
+  messages: '0',
+  rtTime: '13:43',
+  rtDate: '24.11.16',
+  finalStop: 'Aarhus Rutebilstation',
+  direction: 'Aarhus' },
+ ...
+]
 ```
