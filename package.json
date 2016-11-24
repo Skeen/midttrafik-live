@@ -1,13 +1,26 @@
 {
   "name": "midttrafik-live",
   "version": "0.0.2",
-  "description": "",
+  "description": "Pull bus data from 'live.midttrafik.dk' and output as JSON",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Emil 'Skeen' Madsen",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skeen/midttrafik-live.git"
+  },
+  "keywords": [
+    "public transport",
+    "gps",
+    "tracking"
+  ],
+  "bugs": {
+    "url": "https://github.com/Skeen/midttrafik-live/issues"
+  },
+  "homepage": "live.midttrafik.dk",
   "dependencies": {
     "request": "^2.79.0",
     "xml2js": "^0.4.17"
