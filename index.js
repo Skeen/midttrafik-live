@@ -2,7 +2,6 @@ var request = require('request');
 var parseString = require('xml2js').parseString;
 
 // TODO: Error handling
-// TODO: Add support for https://live.midttrafik.dk/getstopinfo2.php?station=751464400&journeys=10
 
 function getBuses(latitude, longitude, radius, callback)
 {
@@ -107,7 +106,7 @@ function getStopDepartures(stop, callback)
 var latitude = 56.23768998815982;
 var longitude = 10.231356261596662;
 var radius = 1968.3468750945158;
-
+/*
 getBuses(latitude, longitude, radius, function(err, buses)
 {
     // Find the first bus 1A
@@ -141,6 +140,7 @@ getBuses(latitude, longitude, radius, function(err, buses)
         console.log(stop);
     });
 });
+*/
 
 getStops(latitude, longitude, radius, function(err, stops)
 {
@@ -156,6 +156,7 @@ getStops(latitude, longitude, radius, function(err, stops)
         if(firstDelayed_index == -1)
         {
             console.error("No buses were delayed for this stop");
+            console.log(buses[0]);
             process.exit(1);
         }
         var bus = buses[firstDelayed_index];
