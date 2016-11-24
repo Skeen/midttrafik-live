@@ -3,6 +3,22 @@ Pull bus data from `live.midttrafik.dk/*` and output as JSON.
 
 The JSON documentation applies to the served XML too.
 
+## Setup
+This library can be acquired using npm;
+```
+npm install --save midttrafik-live
+```
+
+## Usage:
+```
+var mtl = require('midttrafik-live');
+
+mtl.getBuses(56, 10, 50000, function(err, buses)
+{
+    console.log(buses);
+});
+```
+
 ## Data-Format
 ### getStops (getstop.php)
 Get a list of stops within the area specified by radius centered at latitude and longitude. 
