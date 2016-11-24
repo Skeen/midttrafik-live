@@ -71,6 +71,7 @@ Callback takes two arguments `err` and `data`,  below is an example of the data.
 ```
 ### getStopDepartures (getstopinfo2.php)
 **Note: There is a `getstopinfo.php` as well**
+
 Get a list of busses that's passing by the `stop`.
 ```
 getStopDepartues(stop, callback):
@@ -79,7 +80,7 @@ Callback takes two arguments `err` and `data`,  below is an example of the data.
 ```
 [
 { name: 'Bus 114',                      // Descriptive name of the bus
-  type: 'BUS',                          // BUS/TB seen??
+  type: 'BUS',                          // TB and BUS seen. (TB = Bybus, BUS=Bus)
   stop: 'Viborgvej/Bredskiftevej ...',  // The stop this information is reported for (may differ from getStops().Name)
   time: '11:31',                        // time and date are designate the planned arrive time.
   date: '24.11.16',                     // ^^
