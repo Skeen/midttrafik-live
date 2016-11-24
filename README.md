@@ -1,8 +1,10 @@
 # midttrafik-live
-Pull bus data from 'live.midttrafik.dk/getbuses.php' and output as JSON.
+Pull bus data from `live.midttrafik.dk/*` and output as JSON.
+
+The JSON documentation applies to the served XML too.
 
 ## Data-Format
-### getStops
+### getStops (getstop.php)
 Get a list of stops within the area specified by radius centered at latitude and longitude. 
 ```
 getStops(latitude, longitude, radius, callback):
@@ -19,7 +21,7 @@ Callback takes two arguments `err` and `data`,  below is an example of the data.
  ... 
 ]
 ```
-### getBuses
+### getBuses (getbuses.php)
 Get a list of busses within the area specified by radius centered at latitude and longitude. 
 ```
 getBuses(latitude, longitude, radius, callback):
@@ -47,7 +49,7 @@ Callback takes two arguments `err` and `data`,  below is an example of the data.
  ... 
 ] 
 ```
-### getRouteStops
+### getRouteStops (getroutestops.php)
 Get a list of stops that `bus` has already or will pass on it's route. 
 ```
 getRouteStops(bus, callback):
@@ -67,7 +69,8 @@ Callback takes two arguments `err` and `data`,  below is an example of the data.
  ... 
 ] 
 ```
-### getStopDepartures
+### getStopDepartures (getstopinfo2.php)
+**Note: There is a `getstopinfo.php` as well**
 Get a list of busses that's passing by the `stop`.
 ```
 getStopDepartues(stop, callback):
