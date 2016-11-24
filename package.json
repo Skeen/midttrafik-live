@@ -1,6 +1,6 @@
 {
   "name": "midttrafik-live",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Pull bus data from 'live.midttrafik.dk' and output as JSON",
   "main": "index.js",
   "scripts": {
